@@ -1,0 +1,5 @@
+test_env/
+__pycache__/
+*.pyc
+.idea
+memory.json
