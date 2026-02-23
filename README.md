@@ -18,4 +18,3 @@ This project implements a simple-line chatbot in Python using OOP principles.
 - JSON for simple data storage
 - Git & GitHub
 
-- 
