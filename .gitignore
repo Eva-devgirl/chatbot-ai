@@ -2,4 +2,5 @@ test_env/
 __pycache__/
 *.pyc
 .idea
+model.joblib
 memory.json

@@ -2,7 +2,6 @@ from chatbot import ChatBot
 
 def main():
     bot = ChatBot()
-
     print ("Simple AI ChatBot (type 'exit' to quit)")
 
     while True:
