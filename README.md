@@ -6,6 +6,8 @@ This repository contains a small command-line chatbot that combines:
 
 The goal is to show a minimal und interpretable NLP pipeline (TF-IDF + Logistic Regression) for intent detection.
 
+I try different schemas and I want ot observe the changes in the classification.
+
 ## Structure
 
 - main.py -> CLI
