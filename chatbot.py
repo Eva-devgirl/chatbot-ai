@@ -11,7 +11,7 @@ class ChatBot:
         print("DEBUG Memory loaded:", self.memory)
         print("DEBUG name:", self.memory.name, "awaiting_name:", self.memory.awaiting_name)
         self.bot_name = "SimpleBot"
-        self.min_confidence = 0.4 # threshold for unknown
+        self.min_confidence = 0.4
 
     def reply(self, text: str) -> str:
         raw = text.strip()
