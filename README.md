@@ -1,4 +1,4 @@
-# Simple intent-based chatbot (python)
+# supervised NLP intent classification system using TF-IDF and Logistic Regression with cross-validation, hyperparameter tuning and confidence thresholding 
 
 This repository contains a small command-line chatbot that combines:
 - Rule-based dialogue logic and
