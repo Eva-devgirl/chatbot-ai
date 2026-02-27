@@ -2,7 +2,7 @@
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV, StratifiedKFold
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, roc_auc_score
 from sklearn.preprocessing import label_binarize
 import numpy as np
@@ -81,9 +81,35 @@ def main():
         )),
         ("clf", LogisticRegression(
             max_iter=2000,
-            class_weight="balanced"
+            class_weight="balanced",
+            C=1.0
         )),
     ])
+
+    # gridseacrh
+
+    param_grid = {
+        "tfidf__ngram_range": [(1, 1), (1, 2)],
+        "clf__C": [0.1, 1.0, 3.0, 10.0],
+    }
+    cv = StratifiedKFold(n_splits=4, shuffle=True, random_state=42)
+
+    grid = GridSearchCV(
+        model,
+        param_grid=param_grid,
+        scoring="f1_macro",
+        cv=cv,
+        n_jobs=-1,
+    )
+
+    grid.fit(texts, labels)
+
+    print("\n=== GRIDSEARCH ===")
+    print(f"Best CV F1-macro: {grid.best_score_:.3f}")
+    print("Best params:", grid.best_params_)
+
+    model = grid.best_estimator_
+
 
     # train
     model.fit(X_train, y_train)
